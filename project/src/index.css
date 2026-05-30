@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-deep-navy text-white font-mono;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-wider;
+  }
+}
+
+@layer components {
+  .retro-grid {
+    background-image: 
+      linear-gradient(to right, rgba(241, 250, 140, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(241, 250, 140, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .retro-button {
+    @apply bg-pastel-yellow text-deep-navy font-display uppercase font-bold
+           border-2 border-neon-pink py-2 px-6 rounded transition-all 
+           duration-200 ease-out hover:shadow-neon-pink active:scale-95;
+  }
+
+  .tab-button {
+    @apply relative px-4 py-2 font-display uppercase tracking-wider transition-colors
+           duration-150 ease-out hover:text-neon-pink;
+  }
+
+  .tab-button::after {
+    @apply content-[''] absolute bottom-0 left-1/2 h-0.5 bg-neon-pink
+           w-0 -translate-x-1/2 transition-all duration-150 ease-out;
+  }
+
+  .tab-button:hover::after {
+    @apply w-full;
+  }
+
+  .tab-button.active {
+    @apply text-neon-pink;
+  }
+
+  .tab-button.active::after {
+    @apply w-full;
+  }
+
+  .news-card {
+    @apply bg-deep-navy/60 border border-grid-line rounded p-4
+           transition-all duration-150 ease-out hover:-translate-y-1
+           hover:shadow-neon-pink;
+  }
+
+  .coin-toggle {
+    @apply inline-flex items-center justify-center px-3 py-1 m-1 rounded 
+           border border-grid-line bg-deep-navy/60 font-mono
+           transition-all duration-200 ease-out cursor-pointer;
+  }
+
+  .coin-toggle.active {
+    @apply bg-neon-pink text-deep-navy border-neon-pink;
+  }
+
+  .typewriter-container {
+    @apply overflow-hidden whitespace-nowrap;
+  }
+
+  .typewriter-text {
+    @apply w-0 overflow-hidden animate-typewriter;
+  }
+
+  .toast {
+    @apply fixed bottom-4 left-1/2 -translate-x-1/2 py-2 px-4 rounded 
+           shadow-lg opacity-0 transition-all duration-200 ease-out z-50;
+  }
+
+  .toast.success {
+    @apply bg-green-500 text-white;
+  }
+
+  .toast.error {
+    @apply bg-red-500 text-white;
+  }
+
+  .modal {
+    @apply fixed inset-0 flex items-center justify-center z-50;
+  }
+
+  .modal-backdrop {
+    @apply absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-150;
+  }
+
+  .modal-content {
+    @apply bg-deep-navy border border-neon-pink rounded-lg p-6 shadow-neon-pink 
+           max-w-md w-full relative transform transition-transform 
+           duration-250 ease-out translate-y-full;
+  }
+
+  .modal-content.active {
+    @apply translate-y-0;
+  }
+
+  .modal-close {
+    @apply absolute top-2 right-2 text-pastel-yellow hover:text-neon-pink
+           transition-colors duration-100 cursor-pointer;
+  }
+
+  .chart-tooltip {
+    @apply absolute -top-16 left-1/2 -translate-x-1/2 bg-deep-navy
+           border border-neon-pink rounded p-2 text-sm shadow-neon-pink
+           opacity-0 transition-opacity duration-100 ease-out z-10
+           pointer-events-none;
+  }
+
+  .chart-point {
+    @apply absolute w-2 h-2 rounded-full bg-pastel-yellow border border-neon-pink
+           opacity-80 transition-all duration-100 ease-out cursor-pointer;
+  }
+
+  .chart-point:hover {
+    @apply w-3 h-3;
+  }
+
+  .chart-point:hover .chart-tooltip {
+    @apply opacity-100;
+  }
+
+  /* Custom spinner */
+  .spinner {
+    @apply w-8 h-8 border-4 border-neon-pink border-t-transparent
+           rounded-full animate-spin;
+  }
+}

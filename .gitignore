@@ -1,0 +1,30 @@
+# Environment & secrets
+*.env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+*firebase-adminsdk*.json
+Service-Account-Cred-firebase.json
+*firebase.json
+
+# Python
+venv
+__pycache__
+*.pyc
+
+# Node
+node_modules
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local / generated data
+output.json

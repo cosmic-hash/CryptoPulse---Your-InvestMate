@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-white font-mono;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Custom grid background */
+.grid-background {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(241, 250, 140, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(241, 250, 140, 0.1) 1px, transparent 1px);
+}
+
+.grid-background-animated {
+  @apply grid-background animate-grid-drift;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-navy;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon-pink rounded-full;
+}
+
+/* Neon text effect */
+.neon-text {
+  text-shadow: 0 0 5px #F64E60, 0 0 10px #F64E60;
+}
+
+.neon-border {
+  box-shadow: 0 0 5px #F64E60, 0 0 10px #F64E60;
+}
+
+/* Button styles */
+.button-primary {
+  @apply bg-pastel-yellow text-background border-2 border-neon-pink px-4 py-2 rounded-md font-heading uppercase tracking-wider transition-all duration-200;
+}
+
+.button-primary:hover {
+  @apply neon-border transform scale-105;
+}
+
+.button-primary:active {
+  @apply transform scale-95 transition-transform duration-100;
+}
+
+/* Tab styles */
+.tab {
+  @apply relative font-heading uppercase tracking-wider px-4 py-2 cursor-pointer transition-all duration-150;
+}
+
+.tab::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 right-1/2 h-0.5 bg-neon-pink transition-all duration-150;
+}
+
+.tab:hover::after, .tab.active::after {
+  @apply left-0 right-0;
+}
+
+.tab.active {
+  @apply neon-text;
+}
+
+/* Card styles */
+.card {
+  @apply bg-medium-navy rounded-lg border border-light-navy p-4 transition-all duration-200;
+}
+
+.card:hover {
+  @apply transform -translate-y-1 shadow-lg shadow-neon-pink/20;
+}
+
+/* Toast styles */
+.toast {
+  @apply bg-medium-navy border-l-4 border-neon-pink rounded-r-lg p-3 shadow-lg;
+}
+
+/* Typewriter effect */
+.typewriter {
+  @apply overflow-hidden whitespace-nowrap animate-typewriter;
+}
+
+.breathing {
+  animation: breathing 1.5s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
